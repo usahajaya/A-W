@@ -1,0 +1,758 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+:root {
+  --border: 3px solid rgb(219, 197, 0);
+  --bg1: rgba(207, 207, 207, 0.527);
+  --bg2: black;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  /* min-height: 10000px; */
+  font-family: "poppins", cursive;
+}
+
+body {
+  background-image: url("bunga.png");
+  background-position: top center;
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+}
+
+.no-scroll {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* liquid glass */
+.btn,
+.nav-icons,
+.music-button {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15),
+    inset 0 0 0.5px rgba(255, 255, 255, 0.6);
+}
+
+p {
+  font-size: clamp(12px, 3vw, 17px);
+}
+
+h2 {
+  font-size: clamp(15px, 3vw, 25px);
+}
+/* halaman 1 (cover) ============================= */
+.hero {
+  min-height: 100vh;
+  background-image: url("foto/image copy.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "poppins";
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+  text-align: center;
+}
+
+.hero-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-top h1,
+.hero-top h3,
+.hero-top p,
+.hero-bottom p,
+.hero-bottom small {
+  margin: 0;
+  color: white;
+  z-index: 2;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.445);
+}
+.hero-top h3,
+.hero-top p {
+  font-weight: 200;
+}
+
+.hero-bottom small {
+  font-size: clamp(7px, 2.9vw, 15px);
+}
+.hero-top h3 {
+  padding-top: 70px;
+}
+.hero-top h1 {
+  font-family: "Tangerine", cursive;
+  font-size: clamp(70px, 8vw, 90px);
+}
+
+
+
+.btn {
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  z-index: 2;
+}
+
+/* halaman 2 (ayat dan doa) ======================== */
+/* untuk scroll agar tidak mepet */
+#page2,
+#about,
+#rsvp,
+#gift,
+#detail {
+  scroll-margin-top: 20px;
+}
+
+.page2 {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  background: var(--bg1);
+  border-radius: 20px;
+  border: var(--border);
+}
+
+.page2 .arabic {
+  font-weight: 800;
+}
+
+/* halaman 3 (data dari calon mempelai) ============ */
+.calonmempelai {
+  padding: 50px 15px;
+  background: var(--bg1);
+  border-radius: 20px;
+  border: var(--border);
+  margin: 20px;
+}
+
+.calonmempelai h2 {
+  font-family: "Tangerine";
+  font-size: 40px;
+  font-weight: 900;
+}
+.foto {
+  width: 200px;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  border: var(--border);
+}
+
+.foto-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ig {
+  font-size: 0.85rem;
+  color: white;
+  background-image: url("foto/instagram.png");
+  background-position: center;
+  background-size: cover;
+  padding: 5px;
+  border-radius: 10px;
+  margin-top: 20px;
+  border: var(--border);
+  box-shadow: 0 0 5px rgb(255, 208, 0);
+}
+.ig i {
+  margin-right: 4px;
+}
+
+.desktop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.text {
+  max-width: 260px;
+}
+
+.text.pria {
+  text-align: right;
+}
+
+.text.wanita {
+  text-align: left;
+}
+
+.desktop .text.pria .nama {
+  line-height: 1.2;
+}
+
+.mobile {
+  display: none;
+}
+
+/* kisah kami ====================================================== */
+.story {
+  padding: 20px;
+  margin: 20px;
+  background: var(--bg1);
+  border-radius: 20px;
+  border: var(--border);
+}
+
+.story h2 {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.story-item {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.story-text,
+.story-image {
+  flex: 1;
+}
+
+.story-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
+  border: var(--border);
+}
+
+/* zig-zag */
+.story-item.reverse {
+  flex-direction: row-reverse;
+}
+
+/* detail acara ---================================================== */
+.detail-acara {
+  margin: 20px;
+  background: var(--bg1);
+  border-radius: 20px;
+  border: var(--border);
+}
+
+.acara-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 500px;
+  text-align: left;
+  font-size: clamp(2px, 3vw, 17px);
+}
+
+.acara-grid li:last-child {
+  display: flex;
+  justify-content: center;
+  grid-template-columns: 1fr; /* biar gak ikut layout 3 kolom */
+}
+
+.label {
+  font-weight: 500;
+  text-align: left;
+}
+
+.colon {
+  text-align: center;
+}
+
+.value {
+  text-align: left;
+}
+.acara-grid li {
+  display: grid;
+  grid-template-columns: 150px 15px auto;
+  align-items: center; /* INI YANG BIKIN TITIK DUA DI TENGAH */
+  margin-bottom: 12px;
+  font-size: clamp(12px, 3vw, 17px);
+}
+
+.acara-grid li span:first-child::after {
+  content: "";
+}
+
+.detail-acara {
+  text-align: center;
+  padding: 20px;
+}
+
+.detail-acara h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+li .label {
+  font-weight: 900;
+}
+
+.box-acara {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 20px auto;
+  max-width: 700px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: var(--border);
+}
+
+.box-acara h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.box-acara ul {
+  list-style: none;
+  text-align: left;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.btn-maps {
+  display: inline-block;
+  background: rgb(219, 197, 0);
+  color: rgb(255, 255, 255);
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* link streaming ========================== */
+.box-acara {
+  text-align: center;
+}
+
+.streaming-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.btn-stream {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 220px;
+  padding: 12px 16px;
+  border-radius: 12px;
+
+  text-decoration: none;
+  font-weight: 500;
+  color: #fff;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-stream i {
+  font-size: 20px;
+}
+
+/* WARNA BRAND */
+.btn-stream.tiktok {
+  background: linear-gradient(135deg, #000000, #430015);
+}
+
+.btn-stream.youtube {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+}
+
+/* HOVER */
+.btn-stream:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* galeri kami ======================================================= */
+.galerikami {
+  text-align: center;
+  font-size: 26px;
+  padding-top: 20px;
+}
+
+.gallery {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+
+/* konfirmasi kehadiran ==================================== */
+/* =====================
+   RSVP SECTION
+===================== */
+.rsvp {
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  background: var(--bg1);
+  border-radius: 20px;
+  border: var(--border);
+}
+
+.rsvp h2 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.rsvp p {
+  margin-bottom: 40px;
+  opacity: 0.8;
+}
+
+#rsvp-form {
+  max-width: 480px;
+  margin: auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border: var(--border);
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--border);
+  box-shadow: 0 0 0 2px rgba(92, 42, 50, 0.2);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  background: rgb(219, 197, 0);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================gifts ========== */
+.gift-section {
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  background: var(--bg1);
+  border-radius: 20px;
+  border: var(--border);
+}
+
+.gift-box {
+  background: #ffe3ff;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 350px;
+  margin: 20px auto;
+  box-shadow: 3px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.btn-copy {
+  margin-top: 10px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-weight: bold;
+  background: var(--bg2);
+}
+
+.logobank {
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+.gift-box {
+  background: rgb(255, 255, 255);
+  border-radius: 20px;
+  border: var(--border);
+}
+.amplop {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.amplop .bank-info {
+  padding: 20px; /* jarak dalam */
+  border-radius: 10px; /* sudut melengkung */
+  font-size: 15px;
+}
+
+/* footerrrrrrr ====================================================== */
+.footer {
+  text-align: center;
+  font-size: 10px;
+  color: rgb(133, 71, 0);
+  background: white;
+  border-radius: 20px 20px 0 0;
+  border: 3px solid rgb(219, 197, 0);
+}
+.footer p,
+.footer h2,
+.footer h1 {
+  text-shadow: 0 0.3px 10px rgba(255, 251, 0, 0.185);
+}
+
+.footer h2,
+.footer p {
+  padding: 20px;
+}
+
+.footer p {
+  margin: 10px 0;
+}
+
+.footer h1 {
+  font-family: "Tangerine", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 50px;
+}
+footer {
+  background-color: rgb(219, 197, 0);
+  color: rgb(255, 255, 255);
+  padding-bottom: 80px;
+}
+
+/* navigation bar ========================== */
+
+.bottom-nav {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 1000;
+}
+
+.nav-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 12px 20px;
+  border-radius: 50px;
+}
+
+.nav-icons i,
+.music-button i,
+.music-button,
+.nav-icons {
+  font-size: 20px;
+  color: #333;
+  transition: all 0.3s ease-in-out;
+}
+.nav-icons i:hover,
+.music-button:hover,
+.nav-icons:hover {
+  transform: scale(1.2);
+}
+.music-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.bottom-nav.hidden {
+  display: none;
+}
+
+/* responsive media ================== */
+
+@media (max-width: 768px) {
+  /* bagian sammpul ============================= */
+  .hero {
+    background-image: url("foto/image copy 15.png");
+    background-position: center;
+  }
+
+  /* halaman 3 (data calon pengantin) =============== */
+  .desktop {
+    display: none;
+  }
+
+  .calonmempelai {
+    padding: 0;
+  }
+ .mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 0;
+  
+}
+
+.person {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center horizontal */
+  text-align: center;
+}
+
+.foto {
+  width: 200px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin: 20px 0;
+
+}
+
+.ig-mobile {
+  margin-bottom: 14px;
+
+}
+
+.ig-mobile a {
+     background-image: url("foto/instagram.png");
+  background-position: center;
+  background-size: cover;
+  padding: 5px;
+  border-radius: 10px;
+  margin-top: 20px;
+  border: var(--border);
+  box-shadow: 0 0 5px rgb(255, 208, 0);
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.ig-mobile i {
+  margin-right: 6px;
+}
+.text {
+  max-width: 90%;
+}
+
+.text h2 {
+  margin-bottom: 6px;
+  font-size: 37px;
+white-space: nowrap; 
+text-align: center
+;       /* paksa 1 baris */
+}
+
+.text p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+  /* kisah cintaaaaaaaaaaaaaa============================ */
+  .story-item,
+  .story-item.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .story h2 {
+    font-size: 26px;
+    white-space: nowrap;
+  }
+
+  .story-image img {
+    height: 200px;
+  }
+  /* detail acara =============================== */
+  .detail-acara {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .acara-grid li {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  .acara-grid .colon {
+    display: none;
+  }
+
+  .box-acara .value {
+    text-align: center;
+  }
+}
