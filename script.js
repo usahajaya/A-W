@@ -103,3 +103,103 @@ musicBtn.addEventListener("click", () => {
     musicIcon.classList.add("fa-play");
   }
 });
+
+// kkomentar di website ==================================================
+// const API_URL =
+//   "https://script.google.com/macros/s/AKfycbwNTjwaVZzSmOC0fGxYcCfR1O47tyz-_QMnKnZv-NSAjJUNVzml690WqMIJqdGvRDZE/exec";
+
+// const form = document.getElementById("commentForm");
+// const list = document.getElementById("commentsList");
+
+// form.addEventListener("submit", async (e) => {
+//   e.preventDefault();
+
+//   const nama = document.getElementById("nama").value;
+//   const pesan = document.getElementById("pesan").value;
+
+//   await fetch(API_URL, {
+//     method: "POST",
+//     body: JSON.stringify({ nama, pesan }),
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   });
+
+//   form.reset();
+//   loadComments();
+// });
+
+// async function loadComments() {
+//   const res = await fetch(API_URL);
+//   const data = await res.json();
+
+//   list.innerHTML = "";
+
+//   data.reverse().forEach((item) => {
+//     const div = document.createElement("div");
+//     div.className = "comment-item";
+//     div.innerHTML = `
+//       <h4>${item.nama}</h4>
+//       <p>${item.pesan}</p>
+//     `;
+//     list.appendChild(div);
+//   });
+// }
+
+// loadComments();
+
+const API_URL =
+  "https://script.google.com/macros/s/AKfycbwNTjwaVZzSmOC0fGxYcCfR1O47tyz-_QMnKnZv-NSAjJUNVzml690WqMIJqdGvRDZE/exec";
+
+const form = document.getElementById("formKomentar");
+const statusText = document.getElementById("statusKomentar");
+const list = document.getElementById("commentsList");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const nama = document.getElementById("namaKomentar").value.trim();
+  const pesan = document.getElementById("pesanKomentar").value.trim();
+
+  if (!nama || !pesan) {
+    statusText.textContent = "Nama dan pesan tidak boleh kosong";
+    statusText.className = "status error";
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("nama", nama);
+  formData.append("pesan", pesan);
+
+  try {
+    await fetch(API_URL, {
+      method: "POST",
+      body: formData,
+    });
+
+    statusText.textContent = "Berhasil membuat komentar 🤍";
+    statusText.className = "status success";
+    form.reset();
+    loadComments();
+  } catch {
+    statusText.textContent = "Gagal mengirim komentar";
+    statusText.className = "status error";
+  }
+});
+
+async function loadComments() {
+  const res = await fetch(API_URL);
+  const data = await res.json();
+
+  list.innerHTML = "";
+  data.reverse().forEach((item) => {
+    list.innerHTML += `
+      <div class="comment-item">
+        <h4>${item.nama}</h4>
+        <p>${item.pesan}</p>
+      </div>
+    `;
+  });
+}
+
+loadComments();
