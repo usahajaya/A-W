@@ -705,7 +705,7 @@ footer {
   margin-right: 6px;
 }
 .text {
-  max-width: 9%;
+  max-width: 90%;
 }
 
 .text h2 {
@@ -756,4 +756,5 @@ text-align: center
     text-align: center;
   }
 }
+
 
