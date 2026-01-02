@@ -1,5 +1,5 @@
 // ===================== COUNTDOWN
-const targetDate = new Date("June 1, 2026 00:00:00").getTime();
+const targetDate = new Date("June 4, 2026 07:00:00").getTime();
 
 setInterval(() => {
   const now = new Date().getTime();
@@ -26,6 +26,25 @@ const nama = urlParams.get("n");
 
 const namaContainer = document.querySelector(".hero p span");
 namaContainer.innerText = nama;
+
+// background foto berganti
+const images = [
+  "foto/image1.png",
+  "foto/image2.png",
+  "foto/image3.png"
+];
+
+let index = 0;
+
+function changeBg() {
+  document.body.style.backgroundImage =
+    `url('${images[index]}')`;
+
+  index = (index + 1) % images.length;
+}
+
+changeBg(); // pertama
+setInterval(changeBg, 5000);
 
 // salin no rekening -------=============
 document.querySelectorAll(".btn-copy").forEach((btn) => {
@@ -104,49 +123,7 @@ musicBtn.addEventListener("click", () => {
   }
 });
 
-// kkomentar di website ==================================================
-// const API_URL =
-//   "https://script.google.com/macros/s/AKfycbwNTjwaVZzSmOC0fGxYcCfR1O47tyz-_QMnKnZv-NSAjJUNVzml690WqMIJqdGvRDZE/exec";
-
-// const form = document.getElementById("commentForm");
-// const list = document.getElementById("commentsList");
-
-// form.addEventListener("submit", async (e) => {
-//   e.preventDefault();
-
-//   const nama = document.getElementById("nama").value;
-//   const pesan = document.getElementById("pesan").value;
-
-//   await fetch(API_URL, {
-//     method: "POST",
-//     body: JSON.stringify({ nama, pesan }),
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   });
-
-//   form.reset();
-//   loadComments();
-// });
-
-// async function loadComments() {
-//   const res = await fetch(API_URL);
-//   const data = await res.json();
-
-//   list.innerHTML = "";
-
-//   data.reverse().forEach((item) => {
-//     const div = document.createElement("div");
-//     div.className = "comment-item";
-//     div.innerHTML = `
-//       <h4>${item.nama}</h4>
-//       <p>${item.pesan}</p>
-//     `;
-//     list.appendChild(div);
-//   });
-// }
-
-// loadComments();
+// kkomentar undangan =======================
 
 const API_URL =
   "https://script.google.com/macros/s/AKfycbwNTjwaVZzSmOC0fGxYcCfR1O47tyz-_QMnKnZv-NSAjJUNVzml690WqMIJqdGvRDZE/exec";

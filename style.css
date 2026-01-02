@@ -18,20 +18,36 @@ html,
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
   font-family: "poppins", cursive;
 }
 
 header {
   background-color: #666666;
-  padding-top: env(safe-area-inset-top);
+  padding-top: calc(env(safe-area-inset-top) + 12px);
 }
 
 body {
-  background-image: url("bunga.png");
+  /* background-image: url("bunga.png"); */
   background-position: top center;
-  background-size: 100% auto;
-  background-repeat: repeat-y;
+  background-size: cover;
   background-attachment: fixed;
+  /*  */
+  transition: background-image 1.5s ease-in-out;
+  position: relative;
+  /* color: white; */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(2px);
+  background: rgba(255, 255, 255, 0.5);
+  z-index: -1;
 }
 
 .no-scroll {
@@ -68,7 +84,7 @@ h2 {
   background-size: cover;
   background-position: -10px center;
   background-repeat: repeat;
-  font-family: "poppins";
+  font-family: "Poppins", cursive;
 }
 
 .overlay {
@@ -154,6 +170,7 @@ h2 {
   background: var(--bg1);
   border-radius: 20px;
   border: var(--border);
+  /* backdrop-filter: blur(9px); */
 }
 
 .page2 .arabic {
@@ -191,13 +208,10 @@ h2 {
 .ig {
   font-size: 0.85rem;
   color: white;
-  background-image: url("foto/instagram.png");
-  background-position: center;
-  background-size: cover;
-  padding: 5px;
+  background: linear-gradient(1600deg, #fcaf45, #fd1d1d, #833ab4);
+  padding: 5px 10px;
   border-radius: 10px;
   margin-top: 20px;
-  box-shadow: 0 0 5px rgb(255, 208, 0);
 }
 .ig i {
   margin-right: 4px;
@@ -280,13 +294,12 @@ h2 {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: var(--bg1);
-  border: var(--border);
+  background: var(--btn);
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow);
 }
 
 .time-box span {
@@ -298,7 +311,7 @@ h2 {
 .time-box p {
   font-size: 12px;
   margin: 4px 0 0;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.5px;
 }
 
 /* detail acara ---================================================== */
@@ -335,6 +348,7 @@ h2 {
 
 .value {
   text-align: left;
+  padding: 0 15px;
 }
 .acara-grid li {
   display: grid;
@@ -369,7 +383,7 @@ li .label {
   margin: 20px auto;
   max-width: 700px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border: var(--border);
+  /* border: var(--border); */
 }
 
 .box-acara h3 {
@@ -444,7 +458,8 @@ li .label {
 .galerikami {
   text-align: center;
   font-size: 26px;
-  padding-top: 20px;
+  padding-top: 50px;
+  margin: 0 auto;
 }
 
 .gallery {
@@ -460,7 +475,7 @@ li .label {
 .gallery-item {
   overflow: hidden;
   border-radius: 16px;
-  border: var(--border);
+  /* border: var(--border); */
 }
 
 .gallery-item img {
@@ -499,7 +514,7 @@ li .label {
   padding: 30px;
   background: #ffffff;
   border-radius: 20px;
-  border: var(--border);
+  /* border: var(--border); */
 }
 
 .form-group {
@@ -507,6 +522,9 @@ li .label {
   margin-bottom: 20px;
 }
 
+.form-group input {
+  border: none;
+}
 .form-group label {
   font-weight: 600;
   margin-bottom: 6px;
@@ -572,6 +590,7 @@ li .label {
   cursor: pointer;
   font-weight: bold;
   background: var(--btn);
+  font-family: "poppins", cursive;
 }
 
 .logobank {
@@ -582,7 +601,7 @@ li .label {
 .gift-box {
   background: rgb(255, 255, 255);
   border-radius: 20px;
-  border: var(--border);
+  /* border: var(--border); */
 }
 .amplop {
   text-align: center;
@@ -710,12 +729,22 @@ li .label {
   line-height: 1.6;
 }
 
+#formKomentar input:focus,
+#pesanKomentar:focus,
+#formKomentar select:focus {
+  outline: none;
+  border-color: rgb(214, 2, 2);
+  box-shadow: var(--shadow);
+}
+
 /* footerrrrrrr ====================================================== */
 .footer {
   text-align: center;
   font-size: 10px;
   color: var(--btn);
-  background: white;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
   border-radius: 20px 20px 0 0;
   border: var(--border);
 }
@@ -809,7 +838,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 50px;
-    padding: 0;
+    padding: 50px 0;
   }
 
   .person {
@@ -823,20 +852,16 @@ footer {
     width: 170px;
     border-radius: 20px;
     object-fit: cover;
-    margin: 50px 0 20px 0;
   }
 
   .ig-mobile {
-    margin-bottom: 14px;
+    margin: 14px 0;
   }
 
   .ig-mobile a {
-    background-image: url("foto/instagram.png");
-    background-position: center;
-    background-size: cover;
+    background: linear-gradient(1600deg, #fcaf45, #fd1d1d, #833ab4);
     padding: 5px 9px;
     border-radius: 10px;
-    margin-top: 20px;
     box-shadow: var(--border);
     color: #ffffff;
     font-size: 14px;
@@ -865,7 +890,7 @@ footer {
   }
   /* countdown ================================= */
   #countdown {
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 0 10px;
   }
 
