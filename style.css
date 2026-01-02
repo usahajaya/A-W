@@ -24,7 +24,7 @@ body {
 }
 
 header {
-  background-color: #666666;
+  background-color: #ff6881;
   padding-top: calc(env(safe-area-inset-top) + 12px);
 }
 
@@ -32,7 +32,6 @@ body {
   /* background-image: url("bunga.png"); */
   background-position: top center;
   background-size: cover;
-  background-attachment: fixed;
   /*  */
   transition: background-image 1.5s ease-in-out;
   position: relative;
@@ -53,7 +52,6 @@ body::before {
 .no-scroll {
   height: 100vh;
   overflow: hidden;
-  position: fixed;
   width: 100%;
 }
 
@@ -148,7 +146,7 @@ h2 {
   border-radius: 12px;
   color: rgb(255, 255, 255);
   z-index: 2;
-  background-color: rgb(255, 104, 129);
+  background-color: #ff6881;
 }
 
 /* halaman 2 (ayat dan doa) ======================== */
